@@ -1,15 +1,30 @@
 'use strict';
 // console.log('works!');
 
-// Selectors
+// ********************************* Selectors *********************************
+let productsContainer = document.querySelector('.images-container');
+let resultContainer = document.querySelector('.result-container');
+let resultList = document.querySelector('.result-list');
+let totalViews = document.querySelector('.total-views');
+let image1 = document.querySelector('.images-container img:nth-child(1)');
+let image2 = document.querySelector('.images-container img:nth-child(2)');
+let image3 = document.querySelector('.images-container img:nth-child(3)');
+// console.log(totalViews);
 
 // Data
+let clicks = 0;
+let maxClicksAllowed = 25;
 
 const state = {
 	products: [],
 };
 
-// Constructor
+// ********************************* Random function **********************************
+function getRandomNumber() {
+	return Math.floor(Math.random() * state.products.length);
+}
+
+// *********************************** Constructor ************************************
 function Product(name, src) {
 	this.name = name;
 	this.src = src;
@@ -17,7 +32,7 @@ function Product(name, src) {
 	this.clicks = 0;
 }
 
-// Create products
+// ********************************** Create products **********************************
 let bag = new Product('bag', './assets/images/bag.jpg');
 let banana = new Product('banana', './assets/images/banana.jpg');
 let bathroom = new Product('bathroom', './assets/images/bathroom.jpg');
@@ -60,4 +75,82 @@ state.products.push(
 	wineGlass
 );
 
-console.log(state.products);
+// ********************************* Render function *********************************
+function renderProducts() {
+	let prod1 = getRandomNumber();
+	let prod2 = getRandomNumber();
+	let prod3 = getRandomNumber();
+
+	// Functions not repeat a number
+	while (prod2 === prod1 || prod3 === prod1 || prod3 === prod2) {
+		prod2 = getRandomNumber();
+		prod3 = getRandomNumber();
+	}
+
+	// Add images src and name and RENDER
+	image1.name = state.products[prod1].name;
+	image1.alt = state.products[prod1].name;
+	image1.src = state.products[prod1].src;
+
+	image2.name = state.products[prod2].name;
+	image2.alt = state.products[prod2].name;
+	image2.src = state.products[prod2].src;
+
+	image3.name = state.products[prod3].name;
+	image3.alt = state.products[prod3].name;
+	image3.src = state.products[prod3].src;
+
+	// Update clicks
+	state.products[prod1].views++;
+	state.products[prod2].views++;
+	state.products[prod3].views++;
+}
+
+// ********************************* Handle Clicks *********************************
+function handleImagesClick(event) {
+	// Update clicks
+	clicks++;
+
+	// Update products clicks
+	let productClicked = event.target.alt;
+	// console.log(productClicked);
+	for (let i = 0; i < state.products.length; i++) {
+		if (productClicked === state.products[i].name) {
+			state.products[i].clicks++;
+			break;
+		}
+	}
+
+	// Check maxClicksAllowed
+	if (clicks === maxClicksAllowed) {
+		image1.removeEventListener('click', handleImagesClick);
+		image2.removeEventListener('click', handleImagesClick);
+		image3.removeEventListener('click', handleImagesClick);
+
+		renderResults();
+	} else {
+		renderProducts();
+	}
+}
+
+image1.addEventListener('click', handleImagesClick);
+image2.addEventListener('click', handleImagesClick);
+image3.addEventListener('click', handleImagesClick);
+
+// ********************************* Render Results *********************************
+function renderResults() {
+	for (let i = 0; i < state.products.length; i++) {
+		let li = document.createElement('li');
+
+		if (state.products[i].views > 1) {
+			li.textContent = `- ${state.products[i].name}: had ${state.products[i].views} views and was clicked ${state.products[i].clicks} times.`;
+		}
+		resultList.appendChild(li);
+		totalViews.textContent = `${clicks} views`;
+	}
+}
+
+// ********************************* Render Products *********************************
+renderProducts();
+
+// console.log(state.products);
