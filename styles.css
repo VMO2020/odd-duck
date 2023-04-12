@@ -1,0 +1,153 @@
+/* Variables */
+:root {
+	--main: blue;
+	--dark: black;
+	--light: white;
+	--alert: orange;
+	--html: rgb(28, 28, 28);
+}
+
+/* General */
+html {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem; /* 16px */
+	font-weight: 400;
+	line-height: 1.6;
+	letter-spacing: 0.01em;
+	margin: 0 auto;
+	scroll-behavior: smooth;
+	background-color: var(--html);
+}
+
+body {
+	min-width: 320px;
+	max-width: 1280px;
+	min-height: 100svh;
+	margin: 0 auto;
+	background-color: var(--light);
+}
+
+.center,
+.container-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* Fonts */
+h1 {
+	font-size: clamp(1.8rem, 4vw, 3.8rem);
+}
+
+h3 {
+	font-size: clamp(1.2rem, 3vw, 2.8rem);
+	font-style: italic;
+	color: var(--alert);
+	margin-top: 1rem;
+}
+
+/* Buttons & Links */
+
+button {
+	width: 60%;
+	padding: 0.6em 2em;
+	border-radius: 0.5em;
+	color: var(--fg);
+	background-color: var(--bg);
+	transition: all 0.5s ease;
+}
+
+/* Header */
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	min-height: 5svh;
+	padding: 0.7rem 1rem;
+	color: var(--light);
+	background-color: var(--main);
+}
+
+/* Main */
+.main-container {
+	min-height: 89svh;
+}
+
+/* Title */
+.title-container {
+	display: flex;
+	justify-content: flex-start;
+	padding: 0.5rem;
+}
+
+.logo img {
+	width: clamp(1.8rem, 4vw, 3.8rem);
+	margin-left: 0.3em;
+	margin-right: 1em;
+}
+
+/* main-section */
+.section-container {
+	min-height: 84svh;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+
+	/*  */
+	/* border: 2px solid black; */
+}
+
+.result-container {
+	padding: 1em;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 4;
+	/*  */
+	background-color: lightgray;
+	border: 1px solid black;
+}
+
+.images-container {
+	padding: 1em;
+	grid-column-start: 2;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 3;
+	/*  */
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	/*  */
+	background-color: lightblue;
+	border: 1px solid black;
+}
+
+.images-container img {
+	max-width: 33%;
+	margin: 0 0.3rem;
+}
+
+.text-container {
+	padding: 1em;
+	grid-column-start: 2;
+	grid-column-end: 5;
+	grid-row-start: 3;
+	grid-row-end: 4;
+	background-color: lightgreen;
+	/*  */
+	border: 1px solid black;
+}
+
+/* Footer */
+.footer-container {
+	min-height: 5svh;
+	padding: 0.5rem 0;
+	color: var(--main);
+	background-color: var(--main);
+}
+
+p.footer {
+	text-align: center;
+	color: var(--light);
+}
