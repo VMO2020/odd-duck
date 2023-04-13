@@ -8,4 +8,4 @@
 
 ### web
 
-![wireframe](assets/images/odd-dock-sc.png)
+![web](assets/images/odd-dock-sc.png)
