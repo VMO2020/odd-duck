@@ -5,6 +5,7 @@
 let productsContainer = document.querySelector('.images-container');
 let resultContainer = document.querySelector('.result-container');
 let resultList = document.querySelector('.result-list');
+let resultText = document.querySelector('.results-text');
 let totalViews = document.querySelector('.total-views');
 let image1 = document.querySelector('.images-container img:nth-child(1)');
 let image2 = document.querySelector('.images-container img:nth-child(2)');
@@ -128,8 +129,12 @@ function handleImagesClick(event) {
 		image3.removeEventListener('click', handleImagesClick);
 
 		renderResults();
+		renderChart();
 	} else {
 		renderProducts();
+		resultText.textContent = `-- will will be shown at the end, after ${
+			maxClicksAllowed - clicks
+		} views --`;
 	}
 }
 
@@ -147,7 +152,56 @@ function renderResults() {
 		}
 		resultList.appendChild(li);
 		totalViews.textContent = `${clicks} views`;
+		resultText.textContent = '';
 	}
+}
+
+// ****************************** Render Chart Results *******************************
+function renderChart() {
+	let productsArray = [];
+	let clicksArray = [];
+	let viewsArray = [];
+
+	for (let i = 0; i < state.products.length; i++) {
+		let info = state.products[i];
+		productsArray.push(info.name);
+		clicksArray.push(info.clicks);
+		viewsArray.push(info.views);
+	}
+	// console.log(productsArray, clicksArray, viewsArray);
+	const data = {
+		labels: productsArray,
+		datasets: [
+			{
+				label: 'Views',
+				data: viewsArray,
+				backgroundColor: ['blue'],
+				borderColor: ['orange'],
+				borderWidth: 2,
+			},
+			{
+				label: 'Clicks',
+				data: clicksArray,
+				backgroundColor: ['orange'],
+				borderColor: ['lightblue'],
+				borderWidth: 2,
+			},
+		],
+	};
+	const config = {
+		type: 'bar',
+		data: data,
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true,
+				},
+			},
+			indexAxis: 'y',
+		},
+	};
+	const canvasChart = document.getElementById('chart');
+	new Chart(canvasChart, config);
 }
 
 // ********************************* Render Products *********************************

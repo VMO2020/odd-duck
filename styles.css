@@ -3,6 +3,7 @@
 	--main: blue;
 	--dark: black;
 	--light: white;
+	--mid: grey;
 	--border: lightblue;
 	--alert: orange;
 	--html: rgb(28, 28, 28);
@@ -57,6 +58,10 @@ li {
 .total-views {
 	font-size: clamp(1rem, 2vw, 1.8rem);
 	color: var(--alert);
+}
+
+.results-text {
+	color: var(--mid);
 }
 
 /* Buttons & Links */
@@ -120,6 +125,11 @@ button {
 
 .result-list li {
 	margin: 0.5em 0;
+}
+
+/* Chart */
+.chart-container {
+	padding: 2rem;
 }
 
 /* Images */

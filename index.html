@@ -26,7 +26,7 @@
 	<body>
 		<!-- HEADER -->
 		<header class="header-container">
-			<h1>Lab: Class 11</h1>
+			<h3>Lab: Class 11: Click on your favorite product</h3>
 		</header>
 		<!-- MAIN -->
 		<main class="main-container">
@@ -39,6 +39,9 @@
 			<section class="section-container">
 				<div class="result-container">
 					<h3>Results: <span class="total-views"></span></h3>
+					<p class="results-text">
+						-- will will be shown at the end, after 25 views --
+					</p>
 					<ul class="result-list"></ul>
 				</div>
 				<div class="images-container">
@@ -61,6 +64,9 @@
 					</p>
 				</div>
 			</section>
+			<section class="chart-container">
+				<canvas id="chart"></canvas>
+			</section>
 		</main>
 		<!-- FOOTER -->
 		<footer class="footer-container container-center">
@@ -68,5 +74,7 @@
 		</footer>
 		<!-- Link app.js -->
 		<script src="app.js"></script>
+		<!-- Link CDN charts.js -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</body>
 </html>
