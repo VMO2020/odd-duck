@@ -169,9 +169,9 @@ function handleImagesClick(event) {
 		renderChart();
 	} else {
 		renderProducts();
-		resultText.textContent = `will be shown at the end, after ${
+		resultText.textContent = `-> will be shown at the end, after ${
 			maxClicksAllowed - clicks
-		} views --`;
+		} views`;
 	}
 }
 
