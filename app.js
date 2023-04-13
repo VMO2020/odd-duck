@@ -77,16 +77,54 @@ state.products.push(
 );
 
 // ********************************* Render function *********************************
+let prevProduct1 = '';
+let prevProduct2 = '';
+let prevProduct3 = '';
+
 function renderProducts() {
 	let prod1 = getRandomNumber();
 	let prod2 = getRandomNumber();
 	let prod3 = getRandomNumber();
+
+	// Function not repeat image 1
+	while (
+		prod1 === prevProduct1 ||
+		prod1 === prevProduct2 ||
+		prod1 === prevProduct3
+	) {
+		prod1 = getRandomNumber();
+	}
 
 	// Functions not repeat a number
 	while (prod2 === prod1 || prod3 === prod1 || prod3 === prod2) {
 		prod2 = getRandomNumber();
 		prod3 = getRandomNumber();
 	}
+
+	// Function not repeat image 2
+	while (prod2 === prevProduct1 || prod2 === prevProduct2 || prod2 === prod1) {
+		prod2 = getRandomNumber();
+	}
+
+	// Function not repeat image 3
+	while (
+		prod3 === prevProduct1 ||
+		prod3 === prevProduct2 ||
+		prod3 === prevProduct3 ||
+		prod3 === prod1 ||
+		prod3 === prod2
+	) {
+		prod3 = getRandomNumber();
+	}
+
+	// console.log('------------');
+	// console.log(prevProduct1, prevProduct2, prevProduct3);
+	// console.log(prod1, prod2, prod3);
+
+	// Save previews images
+	prevProduct1 = prod1;
+	prevProduct2 = prod2;
+	prevProduct3 = prod3;
 
 	// Add images src and name and RENDER
 	image1.name = state.products[prod1].name;
