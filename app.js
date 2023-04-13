@@ -204,7 +204,7 @@ function renderChart() {
 	new Chart(canvasChart, config);
 }
 
-// ********************************* Render Products *********************************
+// ********************************* Render Products ********************************
 renderProducts();
 
 // console.log(state.products);
