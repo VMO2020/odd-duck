@@ -50,8 +50,8 @@ let shark = new Product('Shark', './assets/images/shark.jpg');
 let sweep = new Product('Sweep', './assets/images/sweep.jpg');
 let tauntaun = new Product('Tauntaun', './assets/images/tauntaun.jpg');
 let unicorn = new Product('Unicorn', './assets/images/unicorn.jpg');
-let waterCan = new Product('Water can', './assets/images/water-can.jpg');
-let wineGlass = new Product('Wine glass', './assets/images/wine-glass.jpg');
+let waterCan = new Product('Water Can', './assets/images/water-can.jpg');
+let wineGlass = new Product('Wine Glass', './assets/images/wine-glass.jpg');
 
 state.products.push(
 	bag,
