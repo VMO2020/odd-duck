@@ -118,7 +118,6 @@ function renderProducts() {
 	}
 
 	// console.log('------------');
-	// console.log(prevProduct1, prevProduct2, prevProduct3);
 	// console.log(prod1, prod2, prod3);
 
 	// Save previews images
