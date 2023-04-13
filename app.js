@@ -95,7 +95,7 @@ function renderProducts() {
 		prod1 = getRandomNumber();
 	}
 
-	// Functions not repeat a number
+	// Functions not repeat image 2 and image 3
 	while (prod2 === prod1 || prod3 === prod1 || prod3 === prod2) {
 		prod2 = getRandomNumber();
 		prod3 = getRandomNumber();
