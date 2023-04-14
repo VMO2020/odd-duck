@@ -7,6 +7,7 @@ let resultContainer = document.querySelector('.result-container');
 let resultList = document.querySelector('.result-list');
 let latestResultList = document.querySelector('.latest-result-container');
 let resultText = document.querySelector('.results-text');
+let startButton = document.querySelector('.start');
 let totalViews = document.querySelector('.total-views');
 let image1 = document.querySelector('.images-container img:nth-child(1)');
 let image2 = document.querySelector('.images-container img:nth-child(2)');
@@ -168,6 +169,7 @@ function handleImagesClick(event) {
 
 		renderResults();
 		renderChart();
+		startButton.classList.remove('hide');
 	} else {
 		renderProducts();
 		resultText.textContent = `-> will be shown at the end, after ${
@@ -193,6 +195,7 @@ function renderResults() {
 		resultText.textContent = '';
 	}
 	saveResults();
+	startButton.classList.remove('hide');
 }
 
 // ********************************* localStorage results *********************************
@@ -223,7 +226,6 @@ function renderLatestResults(latestResult2) {
 			li.textContent = `- ${latestResult2[i].name}: had ${latestResult2[i].views} views and was clicked ${latestResult2[i].clicks} times.`;
 		}
 		latestResultList.appendChild(li);
-		totalViews.textContent = `${clicks} views`;
 		resultText.textContent = '';
 	}
 }
@@ -274,6 +276,22 @@ function renderChart() {
 	};
 	const canvasChart = document.getElementById('chart');
 	new Chart(canvasChart, config);
+}
+
+// ************************************** START *************************************
+
+function start() {
+	console.log('start');
+	resultList.innerHTML = '';
+	totalViews.textContent = '';
+	clicks = 0;
+	image1.addEventListener('click', handleImagesClick);
+	image2.addEventListener('click', handleImagesClick);
+	image3.addEventListener('click', handleImagesClick);
+	startButton.classList.add('hide');
+	saveResults();
+	latestResultList.innerHTML = '';
+	loadResults();
 }
 
 // ********************************* Render Products ********************************
