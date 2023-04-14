@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="./favicon.png" />
 		<!-- Meta data SEO-->
 		<meta name="title" content="Odd Duck Product Co" />
 		<meta
@@ -26,15 +27,16 @@
 	<body>
 		<!-- HEADER -->
 		<header class="header-container">
-			<h3>Lab: Class 11: Click on your favorite product</h3>
+			<span class="logo">
+				<img src="assets/images/duck2.png" alt="logo" />
+			</span>
+			<h1>Odd Duck</h1>
+			<span id="dark"></span>
 		</header>
 		<!-- MAIN -->
 		<main class="main-container">
 			<section class="title-container">
-				<span class="logo">
-					<img src="assets/images/duck2.png" alt="logo" />
-				</span>
-				<h1>Odd Duck</h1>
+				<h3>Click on your favorite product =></h3>
 			</section>
 			<section class="section-container">
 				<div class="result-container">
@@ -67,13 +69,18 @@
 			<section class="chart-container">
 				<canvas id="chart"></canvas>
 			</section>
+			<section class="latest-result-container">
+				<h3>Latest Results:</h3>
+			</section>
 		</main>
 		<!-- FOOTER -->
 		<footer class="footer-container container-center">
 			<p class="footer">&copy 2023 VMOG</p>
+			<!-- <p class="footer">🌝 🌚  🌕 🌒 🌞</p> -->
 		</footer>
-		<!-- Link app.js -->
+		<!-- Link app.js & store.js -->
 		<script src="app.js"></script>
+		<script src="store.js"></script>
 		<!-- Link CDN charts.js  -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	</body>

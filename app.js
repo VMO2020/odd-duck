@@ -5,6 +5,7 @@
 let productsContainer = document.querySelector('.images-container');
 let resultContainer = document.querySelector('.result-container');
 let resultList = document.querySelector('.result-list');
+let latestResultList = document.querySelector('.latest-result-container');
 let resultText = document.querySelector('.results-text');
 let totalViews = document.querySelector('.total-views');
 let image1 = document.querySelector('.images-container img:nth-child(1)');
@@ -191,6 +192,39 @@ function renderResults() {
 		totalViews.textContent = `${clicks} views`;
 		resultText.textContent = '';
 	}
+	saveResults();
+}
+
+let latestResult = [];
+let latestResult2 = [];
+
+function saveResults() {
+	let stringify = JSON.stringify(state.products);
+	localStorage.setItem('results', stringify);
+}
+
+function loadResults() {
+	let getResults = localStorage.getItem('results');
+	let results = JSON.parse(getResults);
+	latestResult.push(results);
+	// console.log(latestResult[0]);
+	latestResult2 = latestResult[0];
+	console.log(latestResult2);
+	renderLatestResults(latestResult2);
+}
+
+// ********************************* Render latest results *********************************
+function renderLatestResults(latestResult2) {
+	for (let i = 0; i < latestResult2.length; i++) {
+		let li = document.createElement('li');
+
+		if (latestResult2[i].views > 1) {
+			li.textContent = `- ${latestResult2[i].name}: had ${latestResult2[i].views} views and was clicked ${latestResult2[i].clicks} times.`;
+		}
+		latestResultList.appendChild(li);
+		totalViews.textContent = `${clicks} views`;
+		resultText.textContent = '';
+	}
 }
 
 // ****************************** Render Chart Results *******************************
@@ -243,5 +277,7 @@ function renderChart() {
 
 // ********************************* Render Products ********************************
 renderProducts();
+loadResults();
+// renderLatestResults();
 
 // console.log(state.products);

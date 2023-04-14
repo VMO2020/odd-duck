@@ -79,7 +79,7 @@ button {
 /* Header */
 .header-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	min-height: 5svh;
 	padding: 0.7rem 1rem;
@@ -122,6 +122,10 @@ button {
 	grid-row-start: 1;
 	grid-row-end: 4;
 	border: 1px solid var(--border);
+}
+
+.latest-result-container {
+	padding: 1em;
 }
 
 .result-list li {
