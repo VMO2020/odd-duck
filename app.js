@@ -195,6 +195,7 @@ function renderResults() {
 	saveResults();
 }
 
+// ********************************* localStorage results *********************************
 let latestResult = [];
 let latestResult2 = [];
 
