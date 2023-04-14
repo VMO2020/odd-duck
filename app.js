@@ -210,7 +210,7 @@ function loadResults() {
 	latestResult.push(results);
 	// console.log(latestResult[0]);
 	latestResult2 = latestResult[0];
-	console.log(latestResult2);
+	// console.log(latestResult2);
 	renderLatestResults(latestResult2);
 }
 

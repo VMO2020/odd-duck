@@ -18,7 +18,7 @@ function loadSettings() {
 	let getSettings = localStorage.getItem('settings');
 	if (getSettings) {
 		settings = JSON.parse(getSettings);
-		console.log(settings);
+		// console.log(settings);
 		setMode();
 	}
 }
