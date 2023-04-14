@@ -108,6 +108,11 @@ button {
 
 #dark {
 	font-size: clamp(1.8rem, 4vw, 3.8rem);
+	cursor: pointer;
+}
+
+#dark:hover {
+	border-bottom: 2px solid var(--alert);
 }
 /* main-section */
 .section-container {
