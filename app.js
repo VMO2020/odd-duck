@@ -231,6 +231,8 @@ function renderLatestResults(latestResult2) {
 }
 
 // ****************************** Render Chart Results *******************************
+let myBarChart = '';
+
 function renderChart() {
 	let productsArray = [];
 	let clicksArray = [];
@@ -275,13 +277,14 @@ function renderChart() {
 		},
 	};
 	const canvasChart = document.getElementById('chart');
-	new Chart(canvasChart, config);
+
+	myBarChart = new Chart(canvasChart, config);
 }
 
 // ************************************** START *************************************
 
 function start() {
-	console.log('start');
+	// console.log('start');
 	resultList.innerHTML = '';
 	totalViews.textContent = '';
 	clicks = 0;
@@ -289,14 +292,12 @@ function start() {
 	image2.addEventListener('click', handleImagesClick);
 	image3.addEventListener('click', handleImagesClick);
 	startButton.classList.add('hide');
-	saveResults();
 	latestResultList.innerHTML = '';
+	myBarChart.destroy();
+	saveResults();
 	loadResults();
 }
 
 // ********************************* Render Products ********************************
 renderProducts();
 loadResults();
-// renderLatestResults();
-
-// console.log(state.products);
