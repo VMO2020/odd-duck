@@ -133,10 +133,11 @@ button {
 }
 
 .latest-result-container {
-	padding: 1em;
+	padding: 1em 2em;
 }
 
-.result-list li {
+.result-list li,
+.latest-result-container li {
 	margin: 0.5em 0;
 }
 
