@@ -106,6 +106,9 @@ button {
 	margin-right: 1em;
 }
 
+#dark {
+	font-size: clamp(1.8rem, 4vw, 3.8rem);
+}
 /* main-section */
 .section-container {
 	min-height: 84svh;
